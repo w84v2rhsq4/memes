@@ -8,6 +8,6 @@ interface State {}
 
 export default class App extends Component<Props, State> {
   render() {
-    return <h1>Hello {this.props.name} </h1>;
+    return <h1>Hello {this.props.name} ))))</h1>;
   }
 }
