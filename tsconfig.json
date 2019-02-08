@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "noImplicitAny": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "target": "esnext",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src/**/*"]
+}

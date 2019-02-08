@@ -1,0 +1,20 @@
+{
+  "name": "memes",
+  "version": "1.0.0",
+  "description": "memes feed",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "yarn webpack",
+    "start": "yarn webpack --watch"
+  },
+  "dependencies": {
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3",
+    "webpack": "4",
+    "webpack-cli": "^3.2.3"
+  }
+}
