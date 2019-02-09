@@ -1,7 +1,6 @@
-const { resolve } = require("path");
+const { resolve, join } = require("path");
 
 module.exports = {
-  mode: "production",
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.js",
@@ -11,7 +10,24 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader"
+        use: {
+          loader: "ts-loader"
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: "[name]_[local]_[hash:base64]",
+              sourceMap: true
+            }
+          }
+        ]
       }
     ]
   },

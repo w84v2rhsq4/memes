@@ -4,9 +4,10 @@
     "lib": ["dom", "esnext"],
     "noImplicitAny": true,
     "outDir": "./dist/",
+    "allowJs": true,
     "sourceMap": true,
     "target": "esnext",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./defs.d.ts"]
 }
