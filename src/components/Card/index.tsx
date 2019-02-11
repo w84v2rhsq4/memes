@@ -39,7 +39,7 @@ export const Card: FunctionComponent<Props> = ({
       </div>
 
       {id ? (
-        <Link to={`/image/${id}`} className={styles.link}>
+        <Link to={`./image/${id}`} className={styles.link}>
           <img src={url} className={styles.img} />
         </Link>
       ) : (

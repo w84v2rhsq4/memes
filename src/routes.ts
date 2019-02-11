@@ -2,9 +2,9 @@ import FeedContainer from "./containers/FeedContainer";
 import LovedFeedContainer from "./containers/LovedFeedContainer";
 import ImageContainer from "./containers/ImageContainer";
 
-const FEED = window.location.pathname + "/";
-const LOVED = window.location.pathname + "/loved";
-const SINGLE_IMAGE = window.location.pathname + "/image/:id";
+const FEED = window.location.pathname + "./";
+const LOVED = window.location.pathname + "./loved";
+const SINGLE_IMAGE = window.location.pathname + "./image/:id";
 export const routes = {
   FEED,
   LOVED,
