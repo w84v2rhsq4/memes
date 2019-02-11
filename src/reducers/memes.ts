@@ -1,5 +1,5 @@
-import { combineReducers, Action } from "redux";
-import { RECEIVE_MEMES, LOVE } from "../actions";
+import { combineReducers } from "redux";
+import { RECEIVE_MEMES, LOVE, UNLOVE } from "../actions";
 import { MemesInterface, lovedIdsType } from "../types";
 
 interface ReceiveMemesActionInterface {
@@ -8,7 +8,7 @@ interface ReceiveMemesActionInterface {
 }
 
 interface LoveMemeActionInterface {
-  type: typeof LOVE;
+  type: typeof LOVE | typeof UNLOVE;
   data: lovedIdsType;
 }
 
@@ -26,6 +26,14 @@ const memes = (state = {} as MemesInterface, action: ActionType) => {
         ...state,
         lovedIds: new Set([...state.lovedIds, action.data])
       };
+    case UNLOVE: {
+      return {
+        ...state,
+        lovedIds: new Set(
+          [...state.lovedIds].filter(id => id !== action.data.toString())
+        )
+      };
+    }
     default:
       return state;
   }

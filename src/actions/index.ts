@@ -1,6 +1,7 @@
 import memes from "../api/memes";
 import { memeIdType, MemeItemInterface } from "../types";
 import { Dispatch } from "redux";
+import { localStorageField } from "../consts";
 
 export const RECEIVE_MEMES = "RECEIVE_MEMES";
 const receiveMemes = (data: MemeItemInterface[]) => ({
@@ -15,12 +16,31 @@ export const getAllMemes = () => (dispatch: Dispatch) => {
 };
 
 export const LOVE = "LOVE";
+export const UNLOVE = "UNLOVE";
 export const loveMeme = (id: memeIdType) => {
-  const storage = JSON.parse(localStorage.getItem("lovedIds"));
-  storage.push(id);
-  localStorage.setItem("lovedIds", JSON.stringify([...new Set(storage)]));
-  return {
-    type: LOVE,
-    data: id
+  return (dispatch: Dispatch, getState: Function) => {
+    const alreadyLiked = getState().memes.lovedIds.has(id);
+    const storage = JSON.parse(localStorage.getItem(localStorageField));
+
+    if (!alreadyLiked) {
+      storage.push(id);
+      localStorage.setItem(
+        localStorageField,
+        JSON.stringify([...new Set(storage)])
+      );
+      dispatch({
+        type: LOVE,
+        data: id
+      });
+    } else {
+      localStorage.setItem(
+        localStorageField,
+        JSON.stringify(storage.filter((item: string) => item !== id))
+      );
+      dispatch({
+        type: UNLOVE,
+        data: id
+      });
+    }
   };
 };

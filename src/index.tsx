@@ -8,20 +8,21 @@ import reducer from "./reducers/memes";
 import { getAllMemes } from "./actions";
 import App from "./components/App";
 import { StoreInterface } from "./types";
+import { localStorageField } from "./consts";
 
 const middleware: Middleware[] = [thunk];
 if (process.env.NODE_ENV !== "production") {
   middleware.push(createLogger());
 }
 
-if (!localStorage.getItem("lovedIds")) {
-  localStorage.setItem("lovedIds", "[]");
+if (!localStorage.getItem(localStorageField)) {
+  localStorage.setItem(localStorageField, "[]");
 }
 
 const initialState: StoreInterface = {
   memes: {
     data: [],
-    lovedIds: new Set(JSON.parse(localStorage.getItem("lovedIds")))
+    lovedIds: new Set(JSON.parse(localStorage.getItem(localStorageField)))
   }
 };
 

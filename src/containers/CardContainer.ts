@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { StoreInterface } from "../types";
 import { Card, Props as CardProps } from "../components/Card";
 import { loveMeme } from "../actions";
+import { Dispatch } from "react";
 
 type OwnProps = Pick<CardProps, "id">;
 export default connect(
@@ -16,6 +17,7 @@ export default connect(
   },
   (dispatch, { id }: OwnProps) => ({
     handleLoveClick: () => {
+      // @ts-ignore
       dispatch(loveMeme(id));
     }
   })

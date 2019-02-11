@@ -30,6 +30,7 @@ export default connect(
     }
   ) => ({
     handleLoveClick: () => {
+      // @ts-ignore
       dispatch(loveMeme(id));
     }
   })
