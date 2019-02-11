@@ -1,0 +1,70 @@
+.card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  min-width: 200px;
+  margin-right: 10px;
+  max-width: 300px;
+}
+
+.fullSize.card {
+  max-width: none;
+  margin-bottom: auto;
+  width: fit-content;
+}
+
+.title {
+  position: absolute;
+  color: #fff;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  pointer-events: none;
+  user-select: none;
+  background: #f00;
+  padding: 10px;
+  bottom: 0;
+  font-size: 10px;
+  white-space: nowrap;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.imageContainer {
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.fullSize > .imageContainer {
+  max-height: none;
+}
+
+.link {
+  display: block;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+
+.icon.liked > svg {
+  fill: #f00;
+}
+
+.icon:hover > svg {
+  fill: #f00;
+  cursor: pointer;
+}
+
+.img {
+  max-width: 100%;
+}
+
+.fullSize .img {
+  height: auto;
+  max-height: 90vh;
+}

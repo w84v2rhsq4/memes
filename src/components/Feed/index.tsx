@@ -1,24 +1,33 @@
 import React, { FunctionComponent } from "react";
-import { MemeItemInterface, memeIdType } from "../../types";
+import { MemeItemInterface } from "../../types";
+import ReactList from "react-list";
+
+import styles from "./styles.css";
+import CardContainer from "../../containers/CardContainer";
 
 interface Props {
   memesData: MemeItemInterface[];
   loveMeme: Function;
 }
 
-const Feed: FunctionComponent<Props> = ({ memesData, loveMeme }) => {
-  const love = (id: memeIdType) => {
-    return () => loveMeme(id);
-  };
+const Feed: FunctionComponent<Props> = ({ memesData }) => {
+  const renderItem = (index: number, key: string) => (
+    <CardContainer id={memesData[index].id} key={key} />
+  );
+
   return (
-    <div>
-      {memesData.map(meme => (
-        <div key={meme.id}>
-          <span>{meme.name}</span>
-          <span onClick={love(meme.id)}>{"<3"}</span>
-          <hr />
-        </div>
-      ))}
+    <div className={styles.cardsContainer}>
+      <ReactList
+        itemRenderer={renderItem}
+        length={memesData.length}
+        // type="variable"
+      />
     </div>
   );
 };
+
+Feed.defaultProps = {
+  memesData: []
+};
+
+export default Feed;

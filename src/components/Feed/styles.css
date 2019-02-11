@@ -1,0 +1,7 @@
+.cardsContainer > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  max-width: 100%;
+  justify-content: center;
+}

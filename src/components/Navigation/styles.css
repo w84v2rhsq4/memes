@@ -1,0 +1,39 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item {
+  width: 48px;
+  height: 48px;
+  outline: none;
+  border-style: none;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 800;
+  background: #ccc;
+}
+
+.item:link,
+.item:visited,
+.item:hover,
+.item:active {
+  color: #333;
+}
+
+.item:hover {
+  background: #fff;
+  color: #f00;
+}
+
+.activeItem {
+  background: #fff;
+}
+
+.activeItem.item {
+  color: #f00;
+}

@@ -1,17 +1,29 @@
 import React from "react";
-import FeedContainer from "../../containers/FeedContainer";
-import LovedFeedContainer from "../../containers/LovedFeedContainer";
-import ImageContainer from "../../containers/ImageContainer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { RouteType, getComponentByRoute } from "../../routes";
+import Navigation from "../Navigation";
 import Layout from "../Layout";
 
 const App = () => (
-  <Layout
-    tabs={{
-      "/": FeedContainer,
-      "/loved": LovedFeedContainer,
-      "/image/:id": ImageContainer
-    }}
-  />
+  <Router>
+    <Layout
+      header={<Navigation items={[RouteType.FEED, RouteType.LOVED]} />}
+      content={
+        <>
+          {[RouteType.FEED, RouteType.LOVED, RouteType.SINGLE_IMAGE].map(
+            item => (
+              <Route
+                key={item}
+                path={item}
+                exact
+                component={getComponentByRoute(item)}
+              />
+            )
+          )}
+        </>
+      }
+    />
+  </Router>
 );
 
 export default App;

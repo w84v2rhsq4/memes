@@ -1,3 +1,10 @@
-.tab {
-  color: red;
+.nav {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+}
+
+.main {
+  margin: 10px 10px 10px 68px;
 }

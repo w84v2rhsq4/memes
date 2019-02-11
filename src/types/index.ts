@@ -8,9 +8,10 @@ export interface MemeItemInterface {
   width: number;
 }
 
+export type lovedIdsType = Set<memeIdType>;
 export interface MemesInterface {
   data?: MemeItemInterface[];
-  lovedIds: Set<memeIdType>;
+  lovedIds: lovedIdsType;
 }
 
 export interface StoreInterface {

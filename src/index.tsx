@@ -31,6 +31,7 @@ const store = createStore(
   applyMiddleware(...middleware)
 );
 
+// @ts-ignore
 store.dispatch(getAllMemes());
 
 render(

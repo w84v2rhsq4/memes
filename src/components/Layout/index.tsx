@@ -1,27 +1,17 @@
-import React, { FunctionComponent, ComponentClass } from "react";
+import React, { FunctionComponent, ComponentClass, ReactNode } from "react";
 import styles from "./styles.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 interface Props {
-  tabs: { [key: string]: ComponentClass<any> };
+  header: ReactNode;
+  content: ReactNode;
 }
 
-const Layout: FunctionComponent<Props> = ({ tabs }) => {
+const Layout: FunctionComponent<Props> = ({ header, content }) => {
   return (
-    <Router>
-      <div>
-        <ul>
-          {["/", "/loved"].map(tab => (
-            <li key={tab} className={styles.tab}>
-              <Link to={tab}>{tab}</Link>
-            </li>
-          ))}
-        </ul>
-        {Object.keys(tabs).map(tab => (
-          <Route key={tab} path={tab} exact component={tabs[tab]} />
-        ))}
-      </div>
-    </Router>
+    <>
+      <nav className={styles.nav}>{header}</nav>
+      <main className={styles.main}>{content}</main>
+    </>
   );
 };
 

@@ -1,11 +1,18 @@
 import { combineReducers, Action } from "redux";
 import { RECEIVE_MEMES, LOVE } from "../actions";
-import { MemesInterface } from "../types";
+import { MemesInterface, lovedIdsType } from "../types";
 
-export interface ActionType {
+interface ReceiveMemesActionInterface {
+  type: typeof RECEIVE_MEMES;
   data: MemesInterface;
-  type: typeof RECEIVE_MEMES | typeof LOVE;
 }
+
+interface LoveMemeActionInterface {
+  type: typeof LOVE;
+  data: lovedIdsType;
+}
+
+export type ActionType = ReceiveMemesActionInterface | LoveMemeActionInterface;
 
 const memes = (state = {} as MemesInterface, action: ActionType) => {
   switch (action.type) {
