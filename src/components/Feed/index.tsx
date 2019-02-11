@@ -17,11 +17,15 @@ const Feed: FunctionComponent<Props> = ({ memesData }) => {
 
   return (
     <div className={styles.cardsContainer}>
-      <ReactList
-        itemRenderer={renderItem}
-        length={memesData.length}
-        // type="variable"
-      />
+      {memesData.length > 0 ? (
+        <ReactList
+          itemRenderer={renderItem}
+          length={memesData.length}
+          // type="variable"
+        />
+      ) : (
+        <h2>Not found</h2>
+      )}
     </div>
   );
 };
