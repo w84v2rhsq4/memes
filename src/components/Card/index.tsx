@@ -3,6 +3,7 @@ import styles from "./styles.css";
 import { Link } from "react-router-dom";
 import HeartIcon from "./heart.svg";
 import classNames from "classnames";
+import { resolve } from "path";
 
 export interface Props {
   title: string;
@@ -39,7 +40,10 @@ export const Card: FunctionComponent<Props> = ({
       </div>
 
       {id ? (
-        <Link to={`./image/${id}`} className={styles.link}>
+        <Link
+          to={resolve(window.location.pathname, `./image/${id}`)}
+          className={styles.link}
+        >
           <img src={url} className={styles.img} />
         </Link>
       ) : (
