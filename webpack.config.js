@@ -3,8 +3,8 @@ const { resolve, join } = require("path");
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    filename: "main.js",
-    path: resolve(__dirname, "./")
+    filename: "bundle.js",
+    path: resolve(__dirname, "./dist/")
   },
   module: {
     rules: [
